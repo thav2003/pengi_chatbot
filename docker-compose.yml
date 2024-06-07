@@ -1,0 +1,29 @@
+version: '3.10.9'
+services:
+  frontend_service:
+    container_name: pengi_chatbot_frontend
+    image: ynnub2804/pengi_chatbot_frontend
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - 3000:3000
+
+  chat_service:
+    container_name: pengi_chatbot_chat_service
+    image: ynnub2804/pengi_chatbot_chat_service
+    build:
+      context: ./pengi_service
+      dockerfile: Dockerfile
+    ports:
+      - 8000:8000
+    volumes:
+      - ./pengi_service/logs:/app/logs
+    restart: always
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/healthz"]
+      interval: 30s
+      timeout: 3s
+      retries: 3
+      start_period: 1m

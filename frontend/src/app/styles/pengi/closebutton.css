@@ -1,0 +1,16 @@
+.close-button > .btn1 {
+  background: #9b9b9b;
+  transform: translateY(0.15rem) rotate(0deg) translateZ(0px);
+}
+.close-button:hover > .btn1 {
+  background: #9b9b9b;
+  transform: translateY(0.15rem) rotate(15deg) translateZ(0px);
+}
+.close-button > .btn2 {
+  background: #9b9b9b;
+  transform: translateY(-0.15rem) rotate(0deg) translateZ(0px);
+}
+.close-button:hover > .btn2 {
+  background: #9b9b9b;
+  transform: translateY(-0.15rem) rotate(-15deg) translateZ(0px);
+}
